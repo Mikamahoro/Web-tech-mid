@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Trucker</title>
+    <style>
+        /* Your original design styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('/images/finance-bg.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        header, nav, main, footer {
+            background-color: rgb(10, 95, 189);
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 10px;
+            box-shadow: 0 4px 6px rgba(10, 95, 189, 0.7);
+        }
+
+        .nav-center a, .nav-right a, .btn, footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .nav-center a:hover, .nav-right a:hover, .btn:hover, footer a:hover {
+            color: #ffffff;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            background-color: #ff9800;
+            border: none;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header Section -->
+<header>
+    <h1 data-lang-key="headerTitle">Welcome to Expense Trucker</h1>
+</header>
+
+<!-- Navigation Bar -->
+<nav>
+
+    <div class="nav-right">
+        <a data-lang-key="navRegister" th:href="@{/register}">Register</a>
+        <a data-lang-key="navLogin" th:href="@{/login}">Login</a>
+    </div>
+    <div class="language-selector">
+        <select id="language-select" class="form-select" aria-label="Language select">
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+        </select>
+    </div>
+</nav>
+
+<!-- Main Section -->
+<main>
+    <h1 data-lang-key="mainTitle">Track Your Expenses Easily</h1>
+    <p data-lang-key="mainDescription">Monitor, manage, and optimize your expenses. Keep your financial goals in check with Expense Trucker.</p>
+
+    <div class="section-content">
+        <h2 data-lang-key="whyUse">Why Use Expense Trucker?</h2>
+        <p data-lang-key="whyUseDescription">Expense Trucker provides you with a comprehensive system to manage your personal or business expenses efficiently. Categorize, track, and analyze your spending patterns to make informed financial decisions.</p>
+
+        <h2 data-lang-key="howItWorks">How It Works</h2>
+        <p data-lang-key="howItWorksDescription">Register and start adding your expenses. View categorized reports, analyze spending trends, and stay on top of your finances effortlessly.</p>
+    </div>
+
+    <a data-lang-key="btnStartTracking" th:href="@{/register}" class="btn">Start Tracking Expenses</a>
+    <a data-lang-key="btnViewReports" th:href="@{/admin}" class="btn">View Reports</a>
+</main>
+
+<!-- Footer Section -->
+<footer>
+    <p>&copy; 2024 Expense Trucker. <span data-lang-key="footerRights">All rights reserved.</span></p>
+    <p><a data-lang-key="footerPrivacy" href="#">Privacy Policy</a> | <a data-lang-key="footerTerms" href="#">Terms of Service</a></p>
+</footer>
+
+<script>
+    const translations = {
+        en: {
+            headerTitle: "Welcome to Expense Trucker",
+            navAdmin: "Admin",
+            navAddExpense: "Add Expense",
+            navReports: "Reports",
+            navRegister: "Register",
+            navLogin: "Login",
+            mainTitle: "Track Your Expenses Easily",
+            mainDescription: "Monitor, manage, and optimize your expenses. Keep your financial goals in check with Expense Trucker.",
+            whyUse: "Why Use Expense Trucker?",
+            whyUseDescription: "Expense Trucker provides you with a comprehensive system to manage your personal or business expenses efficiently. Categorize, track, and analyze your spending patterns to make informed financial decisions.",
+            howItWorks: "How It Works",
+            howItWorksDescription: "Register and start adding your expenses. View categorized reports, analyze spending trends, and stay on top of your finances effortlessly.",
+            btnStartTracking: "Start Tracking Expenses",
+            btnViewReports: "View Reports",
+            footerRights: "All rights reserved.",
+            footerPrivacy: "Privacy Policy",
+            footerTerms: "Terms of Service"
+        },
+        fr: {
+            headerTitle: "Bienvenue à Expense Trucker",
+            navAdmin: "Admin",
+            navAddExpense: "Ajouter des dépenses",
+            navReports: "Rapports",
+            navRegister: "S'inscrire",
+            navLogin: "Se connecter",
+            mainTitle: "Suivez facilement vos dépenses",
+            mainDescription: "Surveillez, gérez et optimisez vos dépenses. Gardez vos objectifs financiers en vue avec Expense Trucker.",
+            whyUse: "Pourquoi utiliser Expense Trucker?",
+            whyUseDescription: "Expense Trucker vous offre un système complet pour gérer vos dépenses personnelles ou professionnelles efficacement. Catégorisez, suivez et analysez vos habitudes de dépenses pour prendre des décisions financières éclairées.",
+            howItWorks: "Comment ça fonctionne",
+            howItWorksDescription: "Inscrivez-vous et commencez à ajouter vos dépenses. Consultez des rapports catégorisés, analysez les tendances de dépenses et restez maître de vos finances sans effort.",
+            btnStartTracking: "Commencez à suivre les dépenses",
+            btnViewReports: "Voir les rapports",
+            footerRights: "Tous droits réservés.",
+            footerPrivacy: "Politique de confidentialité",
+            footerTerms: "Conditions d'utilisation"
+        },
+        es: {
+            headerTitle: "Bienvenido a Expense Trucker",
+            navAdmin: "Admin",
+            navAddExpense: "Agregar gasto",
+            navReports: "Informes",
+            navRegister: "Registrarse",
+            navLogin: "Iniciar sesión",
+            mainTitle: "Rastree sus gastos fácilmente",
+            mainDescription: "Monitoree, gestione y optimice sus gastos. Mantenga sus objetivos financieros bajo control con Expense Trucker.",
+            whyUse: "¿Por qué usar Expense Trucker?",
+            whyUseDescription: "Expense Trucker le proporciona un sistema completo para gestionar sus gastos personales o empresariales de manera eficiente. Categorice, rastree y analice sus patrones de gasto para tomar decisiones financieras informadas.",
+            howItWorks: "Cómo funciona",
+            howItWorksDescription: "Regístrese y comience a agregar sus gastos. Vea informes categorizados, analice las tendencias de gastos y mantenga el control de sus finanzas sin esfuerzo.",
+            btnStartTracking: "Comience a rastrear gastos",
+            btnViewReports: "Ver informes",
+            footerRights: "Todos los derechos reservados.",
+            footerPrivacy: "Política de privacidad",
+            footerTerms: "Términos de servicio"
+        }
+    };
+
+    function loadLanguage(language) {
+        const elements = document.querySelectorAll('[data-lang-key]');
+        elements.forEach(el => {
+            const key = el.getAttribute('data-lang-key');
+            if (translations[language] && translations[language][key]) {
+                el.textContent = translations[language][key];
+            }
+        });
+    }
+
+    document.getElementById('language-select').addEventListener('change', function () {
+        const selectedLanguage = this.value;
+        localStorage.setItem('language', selectedLanguage);
+        loadLanguage(selectedLanguage);
+    });
+
+    window.onload = function() {
+        const savedLanguage = localStorage.getItem('language') || 'en';
+        document.getElementById('language-select').value = savedLanguage;
+        loadLanguage(savedLanguage);
+    };
+</script>
+
+</body>
+</html>
